@@ -13,7 +13,7 @@ CREATE TABLE `user_wallet` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户钱包表';
-` `` 
+``` 
 
 ## 钱包变动明细表
 ``` 
@@ -101,6 +101,7 @@ public class UserWalletController {
 
 # 第三，Service实现
 ## UserWalletService
+``` 
 public interface UserWalletService {
 
     /**
@@ -194,9 +195,11 @@ public class UserWalletServiceImpl implements UserWalletService {
         return walletTransactionDao.findByUserId(userId);
     }
 }
+``` 
 
 # 第四，DAO和实体类的实现
 ## UserWallet实体类
+``` 
 @Entity
 @Table(name = "user_wallet")
 public class UserWallet {
@@ -219,8 +222,10 @@ public class UserWallet {
 
     // getters and setters
 }
+``` 
 
 ## WalletTransaction实体类
+``` 
 @Entity
 @Table(name = "wallet_transaction")
 public class WalletTransaction {
@@ -247,4 +252,5 @@ public class WalletTransaction {
 
     // constructors, getters and setters
 }
+``` 
 

@@ -27,7 +27,7 @@ CREATE TABLE `wallet_transaction` (
   PRIMARY KEY (`id`),
   KEY `idx_user_id_created_at` (`user_id`,`created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='钱包变动明细表';
-//其中 user_wallet 表用于存储用户钱包余额信息，wallet_transaction 表用于存储用户钱包的交易明细，包括充值、消费、退款、提现四种交易类型。
+-- 其中 user_wallet 表用于存储用户钱包余额信息，wallet_transaction 表用于存储用户钱包的交易明细，包括充值、消费、退款、提现四种交易类型。
 ``` 
 
 

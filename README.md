@@ -3,6 +3,7 @@
 
 # 第一，数据库创建
 ## 用户钱包表
+``` 
 CREATE TABLE `user_wallet` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
   `user_id` bigint(20) unsigned NOT NULL COMMENT '用户id',
@@ -12,8 +13,10 @@ CREATE TABLE `user_wallet` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户钱包表';
+` `` 
 
 ## 钱包变动明细表
+``` 
 CREATE TABLE `wallet_transaction` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
   `user_id` bigint(20) unsigned NOT NULL COMMENT '用户id',
@@ -24,11 +27,13 @@ CREATE TABLE `wallet_transaction` (
   PRIMARY KEY (`id`),
   KEY `idx_user_id_created_at` (`user_id`,`created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='钱包变动明细表';
-
 //其中 user_wallet 表用于存储用户钱包余额信息，wallet_transaction 表用于存储用户钱包的交易明细，包括充值、消费、退款、提现四种交易类型。
+``` 
+
 
 # 第二，API接口实现
 ## UserWalletController
+``` 
 @RestController
 @RequestMapping("/wallet")
 public class UserWalletController {
@@ -92,7 +97,7 @@ public class UserWalletController {
         return userWalletService.getTransactions(userId);
     }
 }
-
+``` 
 
 # 第三，Service实现
 ## UserWalletService
